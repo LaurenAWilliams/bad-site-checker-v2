@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "bad-site-checker-v2"
+version = "0.1.0"
+description = "Refactor of bad-site-checker 2 years later"
+authors = ["Lauren Williams <laurenwilliamssoftwareengineer@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.70.0"
+uvicorn = "^0.15.0"
+structlog = "^21.4.0"
+
+[tool.poetry.dev-dependencies]
+ipython = "^7.30.0"
+pytest = "^6.2.5"
+poethepoet = "^0.11.0"
+pytest-cov = "^3.0.0"
+black = "^21.11b1"
+isort = "^5.10.1"
+
+[tool.poe.tasks]
+test = "pytest --cov"
+
+[build-system]
+requires = ["poetry-core>=1.0.7"]
+build-backend = "poetry.core.masonry.api"
