@@ -30,4 +30,4 @@ FROM python-base as production
 
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 COPY ./src/bad_site_checker /bad_site_checker/
-CMD ["uvicorn", "bad_site_checker.main:APP", "--host", "0.0.0.0", "--port", "80"]
+CMD ["bad_site_checker.main:app", "--host", "0.0.0.0", "--port", "80"]

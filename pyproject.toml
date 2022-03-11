@@ -8,8 +8,8 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.70.0"
-uvicorn = "^0.15.0"
 structlog = "^21.4.0"
+mangum = "^0.14.1"
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.30.0"

@@ -1,15 +1,16 @@
 from fastapi import FastAPI, Request
+from mangum import Mangum
 import structlog
 
 LOGGER = structlog.get_logger()
 
-APP = FastAPI()
+app = FastAPI()
 
-@APP.get("/")
+@app.get("/")
 async def root():
     return {"msg": "Hello World"}
 
-@APP.get("/v2/urlinfo/{url_path:path}")
+@app.get("/v2/urlinfo/{url_path:path}")
 async def check_url(url_path, request: Request):
     # reconstruct url with query params
     if request.query_params:
@@ -18,3 +19,5 @@ async def check_url(url_path, request: Request):
     LOGGER.info("urlinfo request received", url=path)
 
     return {"msg": path}
+
+handler = Mangum(app)
